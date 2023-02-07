@@ -1,4 +1,5 @@
 package Articulo;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FacturaMain {
@@ -6,7 +7,7 @@ public class FacturaMain {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner (System.in);
-		int cantidadProducto, opc = 0;
+		int cantidadProducto = 0, opc = 0;
 		String codigoProducto = "";
 		ListarArticulo la = new ListarArticulo();
 		la.fillData();
@@ -27,36 +28,37 @@ public class FacturaMain {
 					sc.nextLine();
 					System.out.println("Numero factura");
 					int num = sc.nextInt();
+					sc.nextLine();
+
 					System.out.println("Nombre cliente:");
 					String nombre = sc.nextLine();
 					System.out.println("Apellido cliente:");
 					String apellido = sc.nextLine();
 					
-					Factura f = new Factura(num, nombre, apellido);
+					Factura f = new Factura(num, nombre, apellido, new ArrayList<LineaFactura>());
 					
 					while (!codigoProducto.equalsIgnoreCase("END")) {
 						System.out.println("Codigo producto: (END para acabar)");
-						codigoProducto = sc.nextLine();
+						codigoProducto = sc.next();
 						if (!codigoProducto.equalsIgnoreCase("END")) {
 							System.out.println("Cantidad producto:");
 							cantidadProducto = sc.nextInt();
-							
 							double totalLinea = la.precio(codigoProducto) * cantidadProducto;
 							f.añadirLinea(codigoProducto, cantidadProducto, totalLinea);
+							
+						}else {
+							f.print();
 						}
 						
 			        }
 					
 					
+					
+					
+					
 			}
 		}while(opc != 0);
 		
-
-
-
-
-
-
 	}
 
 }

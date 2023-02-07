@@ -10,11 +10,13 @@ public class Factura implements Facturacion {
 	ArrayList<LineaFactura> lineasFactura;
 	public double total;
 	
-	public Factura(int numero, String nombre, String apellido) {
+	public Factura(int numero, String nombre, String apellido, ArrayList<LineaFactura> array ) {
 		this.numero = numero;
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.lineasFactura = array;
 	
+		
 	}
 	
 
@@ -24,6 +26,10 @@ public class Factura implements Facturacion {
 	}
 	
 	public void print () {
+		
+		System.out.println("Numero: " + this.numero);
+		System.out.println("Nombre: " + this.nombre);
+		System.out.println("Apellido: " + this.apellido);
 		
 		for(LineaFactura l : lineasFactura) {
 			System.out.println(l);
@@ -44,6 +50,9 @@ public class Factura implements Facturacion {
 		double total = totalLinea + (totalLinea*IVA);
 		return total;
 	}
+
+
+	
 	
 	
 }

@@ -37,11 +37,11 @@ public class ListarArticulo  {
 		
 		ArrayList<Articulo>listaMasCaro = new ArrayList<>();
 		
-		double mayor = lista.get(0).Precio;
+		double mayor = lista.get(0).getPrecio();
 		
 		for(int i = 1; i<lista.size(); i++) {
-			if (lista.get(i).Precio > mayor) {
-				mayor = lista.get(i).Precio;
+			if (lista.get(i).getPrecio() > mayor) {
+				mayor = lista.get(i).getPrecio();
 			}
 			
 			if(lista.get(i).Precio == mayor) {
@@ -58,10 +58,10 @@ public class ListarArticulo  {
 		
 		ArrayList<Articulo>equivalentes = new ArrayList<>();
 
-		double precio = lista.get(lista.indexOf(codigo)).Precio;
+		double precio = lista.get(lista.indexOf(codigo)).getPrecio();
 
 		for(int i = 0; i<lista.size(); i++) {
-			if(lista.get(i).Precio == precio) {
+			if(lista.get(i).getPrecio() == precio) {
 				equivalentes.add(lista.get(i));
 			}
 		}
@@ -73,7 +73,13 @@ public class ListarArticulo  {
 	
 	public double precio(String codigo) {
 		
-		double precio = lista.get(lista.indexOf(codigo)).Precio;
+	
+		double precio = 0;
+		for(Articulo a :lista) {
+			if(a.getCodigo().equals(codigo)) {
+				precio = a.getPrecio();
+			}
+		}
 	
 		return precio;
 		
