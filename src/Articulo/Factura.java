@@ -28,7 +28,7 @@ public class Factura implements Facturacion {
 	public void print () {
 		
 		System.out.println();
-		System.out.println("**********************************************************");
+		System.out.println("***************************************************");
 		System.out.println("Numero: " + this.numero);
 		System.out.println("Nombre: " + this.nombre);
 		System.out.println("Apellido: " + this.apellido);
@@ -47,7 +47,7 @@ public class Factura implements Facturacion {
 		double totalLinea = 0;
 		for(int i = 0; i<lineasFactura.size(); i++) {
 			
-				 totalLinea =+ lineasFactura.get(i).totalLinea;
+				 totalLinea += lineasFactura.get(i).totalLinea;
 				
 			}
 		

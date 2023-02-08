@@ -14,7 +14,7 @@ public class ListarArticulo  {
 		lista.add(new Refresco("982Y", "Multifrutas", "ElFrutas", 0.63, 1200, "Fruta", true, false, 23));
 		lista.add(new Refresco("1182W", "Cocacola", "PepsiCo", 1.83, 300000, "Cola", false, true, 47 ));
 		lista.add(new Vino("837EF", "ElCojo", "VinosElManco", 2.43, 230, "Tinto", "Rioja", 2015, "Garnacha"));
-		lista.add(new Vino("092LA", "ElCiego", "ElOjoQTodoLoVe", 9.2, 120, "Rosado", "Rias Baixas", 2018, "Tempranillo"));
+		lista.add(new Vino("092LA", "ElCiego", "ElOjoQTodoLoVe", 1.25, 120, "Rosado", "Rias Baixas", 2018, "Tempranillo"));
 		lista.add(new Vino("7363PQ", "ElBueno", "VinosElMalo", 12.3, 12, "Blanco", "Barcelona", 2020, "Cabernet"));
 		lista.add(new Vino("1821Z", "ElFeo", "VinosElGuapo", 3222.53, 2, "Cava", "Italia", 1980, "Merlot"));
 	}
@@ -38,13 +38,16 @@ public class ListarArticulo  {
 		
 		ArrayList<Articulo>listaMasCaro = new ArrayList<>();
 		
-		double mayor = lista.get(0).getPrecio();
+		double mayor = 0;
 		
-		for(int i = 1; i<lista.size(); i++) {
+		for(int i = 0; i<lista.size(); i++) {
 			if (lista.get(i).getPrecio() > mayor) {
 				mayor = lista.get(i).getPrecio();
 			}
-			
+		
+		}
+		
+		for(int i = 0; i<lista.size(); i++) {
 			if(lista.get(i).Precio == mayor) {
 				listaMasCaro.add(lista.get(i));
 			}
@@ -59,7 +62,7 @@ public class ListarArticulo  {
 		
 		ArrayList<Articulo>equivalentes = new ArrayList<>();
 
-		double precio = lista.get(lista.indexOf(codigo)).getPrecio();
+		double precio = precio(codigo);
 
 		for(int i = 0; i<lista.size(); i++) {
 			if(lista.get(i).getPrecio() == precio) {

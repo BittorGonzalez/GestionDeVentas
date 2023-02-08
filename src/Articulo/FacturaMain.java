@@ -17,7 +17,8 @@ public class FacturaMain {
 			System.out.println("2- Listar articulos");
 			System.out.println("3- Listar articulos sanos");
 			System.out.println("4- Pedir un codigo y mostrar los articulos que tienen el precio equivalente del articulo");
-			System.out.println("5- Listar los productos con stock bajo");
+			System.out.println("5- Listar los productos mas caros");
+			System.out.println("6- Listar los productos con stock bajo");
 			System.out.println("7- Pedir codigo de articulo y aumentar stock");
 			System.out.println("0- Salir");
 			System.out.println("Opcion...");
@@ -26,6 +27,7 @@ public class FacturaMain {
 			switch(opc) {
 				case 1: 
 					sc.nextLine();
+					System.out.println("******************REALIZAR FACTURA******************");
 					System.out.println("Numero factura");
 					int num = sc.nextInt();
 					sc.nextLine();
@@ -45,7 +47,18 @@ public class FacturaMain {
 							cantidadProducto = sc.nextInt();
 							double totalLinea = la.precio(codigoProducto) * cantidadProducto;
 							f.añadirLinea(codigoProducto, cantidadProducto, totalLinea);
-							
+							for(Articulo a: la.lista) {
+								
+								if(a.Codigo.equals(codigoProducto)) {
+									
+									a.restarStock(cantidadProducto);
+									
+								
+								}
+								
+								
+
+							}
 							
 						}else {
 							f.print();
@@ -58,6 +71,7 @@ public class FacturaMain {
 				case 2:
 					System.out.println();
 					System.out.println();
+					System.out.println("******************LISTAR ARTICULOS******************");
 					for(Articulo a: la.lista ) {
 						System.out.println(a.printCaracteristicas());
 						
@@ -65,6 +79,90 @@ public class FacturaMain {
 					
 					System.out.println();
 					System.out.println();
+					break;
+					
+				case 3:
+					System.out.println();
+					System.out.println();
+					System.out.println("******************LISTAR ARTICULOS SANOS******************");
+					for(Articulo a: la.lista ) {
+						if(a.sano()) {
+							System.out.println(a.printCaracteristicas());
+
+						}
+						
+					}
+					
+					System.out.println();
+					System.out.println();
+					break;
+				
+				case 4:
+					System.out.println();
+					System.out.println();
+					System.out.println("******************PRECIO EQUIVALENTE******************");
+					System.out.println("Codigo: ");
+					String codigo = sc.next();
+					
+					for(Articulo a: la.equivalentes(codigo) ) {
+						System.out.println(a.printCaracteristicas());
+						
+					}
+					System.out.println();
+					System.out.println();
+					break;
+				
+				case 5:
+					System.out.println();
+					System.out.println();
+					System.out.println("******************PRODUCTO MAS CARO******************");
+					
+					
+					for(Articulo a: la.mascaro()) {
+						System.out.println(a.printCaracteristicas());
+
+					}
+					System.out.println();
+					System.out.println();
+					break;
+					
+				case 6:
+					
+					System.out.println();
+					System.out.println();
+					System.out.println("******************PRODUCTO CON STOCK BAJO******************");
+					for(Articulo a: la.reponer()) {
+						System.out.println(a.printCaracteristicas());
+
+					}
+					System.out.println();
+					System.out.println();
+					break;
+					
+				case 7:
+					System.out.println();
+					System.out.println();
+					System.out.println("******************AUMENTAR STOCK******************");
+					System.out.println("Codigo: ");
+					codigoProducto = sc.next();
+			
+					for(Articulo a: la.lista) {
+						
+						if(a.Codigo.equals(codigoProducto)) {
+							System.out.println("Stock a aumentar: ");
+							num = sc.nextInt();
+							a.sumarStock(num);
+							System.out.println("Stock aumentado");
+						
+						}
+						
+						
+
+					}
+					System.out.println();
+					System.out.println();
+					break;
+					
 			}
 		}while(opc != 0);
 		
