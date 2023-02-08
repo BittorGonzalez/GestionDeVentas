@@ -27,6 +27,8 @@ public class Factura implements Facturacion {
 	
 	public void print () {
 		
+		System.out.println();
+		System.out.println("**********************************************************");
 		System.out.println("Numero: " + this.numero);
 		System.out.println("Nombre: " + this.nombre);
 		System.out.println("Apellido: " + this.apellido);
@@ -34,6 +36,8 @@ public class Factura implements Facturacion {
 		for(LineaFactura l : lineasFactura) {
 			System.out.println(l);
 		}
+		System.out.println(calcularTotal());
+		System.out.println("**********************************************************");
 	}
 
 

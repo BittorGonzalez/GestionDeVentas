@@ -17,8 +17,9 @@ public class Vino extends Articulo{
 
 	@Override
 	public String printCaracteristicas() {
-		String caracteristicas = super.toString() + " Color: " + Color + " Origen: " + Origen + " Año: " + año + " Uva: " + uva;
-		return caracteristicas;
+		String linea = "************************";
+		String caracteristicas = super.toString() + "Color: " + Color + "\n" +  "Origen: " + Origen + "\n" + "Año: " + año + "\n" +"Uva: " + uva;
+		return caracteristicas + "\n" + linea;
 	}
 
 	@Override

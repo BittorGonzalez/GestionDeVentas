@@ -46,16 +46,25 @@ public class FacturaMain {
 							double totalLinea = la.precio(codigoProducto) * cantidadProducto;
 							f.añadirLinea(codigoProducto, cantidadProducto, totalLinea);
 							
+							
 						}else {
 							f.print();
+							System.out.println();
+							System.out.println();
 						}
 						
-			        }
+			        }break;
 					
+				case 2:
+					System.out.println();
+					System.out.println();
+					for(Articulo a: la.lista ) {
+						System.out.println(a.printCaracteristicas());
+						
+					}
 					
-					
-					
-					
+					System.out.println();
+					System.out.println();
 			}
 		}while(opc != 0);
 		

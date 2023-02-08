@@ -14,7 +14,7 @@ public class ListarArticulo  {
 		lista.add(new Refresco("982Y", "Multifrutas", "ElFrutas", 0.63, 1200, "Fruta", true, false, 23));
 		lista.add(new Refresco("1182W", "Cocacola", "PepsiCo", 1.83, 300000, "Cola", false, true, 47 ));
 		lista.add(new Vino("837EF", "ElCojo", "VinosElManco", 2.43, 230, "Tinto", "Rioja", 2015, "Garnacha"));
-		lista.add(new Vino("092LA", "ElCiego", "VinosElSordo", 9.2, 120, "Rosado", "Rias Baixas", 2018, "Tempranillo"));
+		lista.add(new Vino("092LA", "ElCiego", "ElOjoQTodoLoVe", 9.2, 120, "Rosado", "Rias Baixas", 2018, "Tempranillo"));
 		lista.add(new Vino("7363PQ", "ElBueno", "VinosElMalo", 12.3, 12, "Blanco", "Barcelona", 2020, "Cabernet"));
 		lista.add(new Vino("1821Z", "ElFeo", "VinosElGuapo", 3222.53, 2, "Cava", "Italia", 1980, "Merlot"));
 	}
@@ -24,8 +24,9 @@ public class ListarArticulo  {
 		ArrayList<Articulo>listaStock = new ArrayList<>();
 		
 		for(Articulo a: lista) {
-			if(a.Stock < 50 )
-			listaStock.add(a);
+			if(a.Stock < 50 ) {
+				listaStock.add(a);
+			}
 		}
 		
 		return listaStock;

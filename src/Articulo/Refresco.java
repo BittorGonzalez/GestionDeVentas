@@ -19,8 +19,9 @@ public class Refresco extends Articulo{
 	}
 	@Override
 	public String printCaracteristicas() {
-		String caracteristicas = super.toString() + " Sabor: " + Sabor + " Zumo: " + Zumo + " Gas: " + Gas + " Azucar: " + Azucar;
-		return caracteristicas;
+		String linea = "************************";
+		String caracteristicas = super.toString() + "Sabor: " + Sabor + "\n" + "Zumo: " + Zumo + "\n" + "Gas: " + Gas + "\n" +"Azucar: " + Azucar;
+		return caracteristicas + "\n" + linea ;
 	}
 	@Override
 	public boolean sano() {
